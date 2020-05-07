@@ -26,7 +26,3 @@ void Ship::turnLeft() {
 void Ship::turnRight() {
 	rotateByAngle(rotationSpeed);
 }
-
-void Ship::draw(sf::RenderWindow& window) const {
-	window.draw(sprite);
-}

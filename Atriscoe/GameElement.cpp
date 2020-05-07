@@ -14,6 +14,10 @@ void GameElement::rotateByAngle(float angle) {
 	sprite.setRotation(rotation);
 }
 
+void GameElement::draw(sf::RenderWindow& window) const {
+	window.draw(sprite);
+}
+
 void GameElement::wrapPosition() {
 	sf::FloatRect frame = sprite.getGlobalBounds();
 	if (position.x < -frame.width / 2) {

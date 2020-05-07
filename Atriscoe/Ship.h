@@ -7,7 +7,6 @@ public:
 	void accelerate();
 	void turnLeft();
 	void turnRight();
-	void draw(sf::RenderWindow& window) const;
 private:
 	const float speedLimit = 400.0f;
 	const float acceleration = 0.2f;

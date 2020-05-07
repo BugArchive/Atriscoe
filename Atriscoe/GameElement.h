@@ -10,6 +10,7 @@ class GameElement {
 public:
 	void updatePosition();
 	void rotateByAngle(float angle);
+	void draw(sf::RenderWindow& window) const;
 
 protected:
 	const static float windowRightBorder;
