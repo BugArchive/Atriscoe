@@ -26,7 +26,7 @@ void App::run() {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ship.turnRight();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) ship.accelerate();
 		}
-		
+
 		ship.updatePosition();
 
 		windowPtr->clear();
