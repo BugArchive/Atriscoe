@@ -7,7 +7,6 @@ App::App() {
 	windowPtr->setFramerateLimit(60);
 	windowPtr->setVerticalSyncEnabled(true);
 	windowPtr->setMouseCursorVisible(false);
-	isWindowInFocus = true;
 }
 
 void App::run() {
@@ -19,22 +18,23 @@ void App::run() {
 		while (windowPtr->pollEvent(event));
 		{
 			if (event.type == sf::Event::Closed) windowPtr->close();
-
-			if(event.type == sf::Event::GainedFocus) isWindowInFocus = true;
-
-			if(event.type == sf::Event::LostFocus) isWindowInFocus = false;
 		}
-		if (isWindowInFocus) {
+		if (checkIfWindowInFocus()) {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) windowPtr->close();
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) ship.turnLeft();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ship.turnRight();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) ship.accelerate();
 		}
+		
 		ship.updatePosition();
 
 		windowPtr->clear();
 		ship.draw(*windowPtr);
 		windowPtr->display();
 	}
+}
+
+bool App::checkIfWindowInFocus() const {
+	return windowPtr->getSystemHandle() == GetFocus();
 }

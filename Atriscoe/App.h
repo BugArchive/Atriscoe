@@ -1,6 +1,7 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include <memory>
+#include <SFML/Graphics.hpp>
+#include <Windows.h>
 #include "Ship.h"
 
 class App {
@@ -8,7 +9,7 @@ public:
 	App();
 	void run();
 private:
+	bool checkIfWindowInFocus() const;
 	std::unique_ptr<sf::RenderWindow> windowPtr;
-	bool isWindowInFocus = true;
 };
 
