@@ -12,6 +12,7 @@ App::App() {
 void App::run() {
 
 	Ship ship;
+	Asteroid asteroid;
 
 	while (windowPtr->isOpen()) {
 		sf::Event event;
@@ -27,9 +28,11 @@ void App::run() {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) ship.accelerate();
 		}
 
+		asteroid.updatePosition();
 		ship.updatePosition();
 
 		windowPtr->clear();
+		asteroid.draw(*windowPtr);
 		ship.draw(*windowPtr);
 		windowPtr->display();
 	}
