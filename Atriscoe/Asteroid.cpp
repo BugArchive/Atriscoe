@@ -1,8 +1,8 @@
 #include "Asteroid.h"
 
-Asteroid::Asteroid() {
-	position = {200.0f, 300.0f};
-	velocity = { 1.0f, 2.0f };
+Asteroid::Asteroid(const sf::Vector2f& position) {
+	this->position = position;
+	velocity = { randFloat(-3.0f, 3.0f), randFloat(-3.0f, 3.0f) };
 
 	float sprite_size = 16.0f;
 	sprite.setPointCount(4);
