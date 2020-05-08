@@ -27,8 +27,12 @@ void App::run() {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ship.turnRight();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) ship.accelerate();
 		}
+		if (ship.checkIfCollidingWith(asteroid)) {
+			asteroid = Asteroid();
+		}
 
 		asteroid.updatePosition();
+		asteroid.rotateByAngle(0.5f);
 		ship.updatePosition();
 
 		windowPtr->clear();
