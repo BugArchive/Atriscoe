@@ -2,6 +2,7 @@
 
 Ship::Ship() {
 	position = { windowRightBorder / 2.0f, windowBottomBorder / 2.0f };
+
 	sprite.setPosition(position);
 	sprite.setPointCount(3);
 	sprite.setPoint(0, { -20.0f, -12.0f });
