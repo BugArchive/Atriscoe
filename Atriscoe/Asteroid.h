@@ -10,4 +10,3 @@ private:
 	static constexpr auto randFloat = RandomFloatGenerator::generateRandomFloatInRange;
 	float rotationSpeed;
 };
-

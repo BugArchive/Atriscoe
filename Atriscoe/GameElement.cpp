@@ -1,7 +1,7 @@
 #include "GameElement.h"
 
-const float GameElement::windowRightBorder = static_cast<float>(sf::VideoMode::getDesktopMode().width);
-const float GameElement::windowBottomBorder = static_cast<float>(sf::VideoMode::getDesktopMode().height);
+const float GameElement::windowRightBorder{ static_cast<float>(sf::VideoMode::getDesktopMode().width) };
+const float GameElement::windowBottomBorder{ static_cast<float>(sf::VideoMode::getDesktopMode().height) };
 
 void GameElement::updatePosition() {
 	position += velocity;

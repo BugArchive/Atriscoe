@@ -8,8 +8,7 @@ public:
 	void turnLeft();
 	void turnRight();
 private:
-	const float speedLimit = 400.0f;
-	const float acceleration = 0.2f;
-	const float rotationSpeed = 4.0f;
+	const float speedLimit{ 400.0f };
+	const float acceleration{ 0.2f };
+	const float rotationSpeed{ 4.0f };
 };
-

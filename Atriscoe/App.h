@@ -13,4 +13,3 @@ private:
 	bool checkIfWindowInFocus() const;
 	std::unique_ptr<sf::RenderWindow> windowPtr;
 };
-

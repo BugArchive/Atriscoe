@@ -1,9 +1,9 @@
 #include "RandomFloatGenerator.h"
 
-const float RandomFloatGenerator::baseMin = 0.0f;
-const float RandomFloatGenerator::baseMax = 1.0f;
+const float RandomFloatGenerator::baseMin{ 0.0f };
+const float RandomFloatGenerator::baseMax{ 1.0f };
 std::random_device RandomFloatGenerator::rd;
-std::mt19937 RandomFloatGenerator::gen(rd());								// seeding the generator
+std::mt19937 RandomFloatGenerator::gen{ rd() };								// seeding the generator
 std::uniform_real_distribution<float> RandomFloatGenerator::dis{ baseMin, baseMax };
 
 

@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <SFML/Graphics.hpp>
 
-constexpr float M_PI = 3.14159265358979323846f;
+constexpr float M_PI{ 3.14159265358979323846f };
 
 class GameElement {
 public:
@@ -19,7 +19,7 @@ protected:
 	sf::ConvexShape sprite;
 	sf::Vector2f position{ 0.0f, 0.0f };
 	sf::Vector2f velocity{ 0.0f, 0.0f };
-	float rotation = 0.0f;
+	float rotation{ 0.0f };
 
 private:
 	void wrapPosition();
