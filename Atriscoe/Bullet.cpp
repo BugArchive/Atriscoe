@@ -1,6 +1,6 @@
 #include "Bullet.h"
 
-const float Bullet::speed = 10.0f;
+const float Bullet::speed = 18.0f;
 
 Bullet::Bullet(const sf::Vector2f & position, float rotation) {
 	this->position = position;

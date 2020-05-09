@@ -10,7 +10,7 @@ public:
 	void turnRight();
 	Bullet spawnBullet();
 private:
-	const float speedLimit{ 400.0f };
+	const float speedLimit{ 256.0f };
 	const float acceleration{ 0.2f };
 	const float rotationSpeed{ 4.0f };
 };
