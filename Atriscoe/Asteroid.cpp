@@ -1,6 +1,6 @@
 #include "Asteroid.h"
 
-Asteroid::Asteroid(const sf::Vector2f& position) {
+Asteroid::Asteroid(const sf::Vector2f& position): rotationSpeed(randFloat(-1.0f, 1.0f)) {
 	this->position = position;
 	velocity = { randFloat(-3.0f, 3.0f), randFloat(-3.0f, 3.0f) };
 
@@ -11,5 +11,10 @@ Asteroid::Asteroid(const sf::Vector2f& position) {
 	sprite.setPoint(2, sprite_size*sf::Vector2f(7.5f, 7.5f));
 	sprite.setPoint(3, sprite_size*sf::Vector2f(-7.5f, 7.5f));
 	sprite.setFillColor(sf::Color(60, 40, 30));
-	sprite.setOutlineThickness(3.0f);
+	sprite.setOutlineThickness(-3.0f);
+}
+
+void Asteroid::update() {
+	rotateByAngle(rotationSpeed);
+	updatePosition();
 }

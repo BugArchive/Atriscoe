@@ -31,8 +31,7 @@ void App::run() {
 			asteroid = Asteroid();
 		}
 
-		asteroid.updatePosition();
-		asteroid.rotateByAngle(0.5f);
+		asteroid.update();
 		ship.updatePosition();
 
 		windowPtr->clear();
