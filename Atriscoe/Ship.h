@@ -1,5 +1,6 @@
 #pragma once
 #include "GameElement.h"
+#include "Bullet.h"
 
 class Ship : public GameElement {
 public:
@@ -7,6 +8,7 @@ public:
 	void accelerate();
 	void turnLeft();
 	void turnRight();
+	Bullet spawnBullet();
 private:
 	const float speedLimit{ 400.0f };
 	const float acceleration{ 0.2f };

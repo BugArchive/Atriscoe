@@ -1,5 +1,7 @@
 #pragma once
 #include <memory>
+#include <vector>
+#include <algorithm>
 #include <SFML/Graphics.hpp>
 #include <Windows.h>
 #include "Ship.h"

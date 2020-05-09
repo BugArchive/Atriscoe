@@ -13,6 +13,7 @@ void App::run() {
 
 	Ship ship;
 	Asteroid asteroid;
+	std::vector<Bullet> bullets;
 
 	while (windowPtr->isOpen()) {
 		sf::Event event;
@@ -26,15 +27,20 @@ void App::run() {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) ship.turnLeft();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ship.turnRight();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) ship.accelerate();
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) bullets.emplace_back(ship.spawnBullet());
 		}
 		if (ship.checkIfCollidingWith(asteroid)) {
 			asteroid = Asteroid();
 		}
 
+		bullets.erase(std::remove_if(bullets.begin(), bullets.end(), [](Bullet& bullet) { return !bullet.updateWithLifetime(); }), bullets.end());
 		asteroid.update();
 		ship.updatePosition();
 
 		windowPtr->clear();
+		for (const auto& bullet : bullets) {
+			bullet.draw(*windowPtr);
+		}
 		asteroid.draw(*windowPtr);
 		ship.draw(*windowPtr);
 		windowPtr->display();

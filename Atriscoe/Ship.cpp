@@ -26,3 +26,7 @@ void Ship::turnLeft() {
 void Ship::turnRight() {
 	rotateByAngle(rotationSpeed);
 }
+
+Bullet Ship::spawnBullet() {
+	return Bullet{ position, rotation };
+}
