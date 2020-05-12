@@ -32,6 +32,10 @@ Bullet Ship::spawnBullet() {
 	return Bullet{ position, rotation };
 }
 
+ShipExplosion Ship::spawnExplosion() {
+	return ShipExplosion(position);
+}
+
 void Ship::resetState() {
 	position = { windowRightBorder / 2.0f, windowBottomBorder / 2.0f };
 	velocity = { 0.0f, 0.0f };

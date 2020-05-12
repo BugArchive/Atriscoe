@@ -14,6 +14,7 @@ void App::run() {
 	Ship ship;
 	Asteroid asteroid;
 	std::vector<Bullet> bullets;
+	std::vector<ShipExplosion> shipExplosions;
 
 	while (windowPtr->isOpen()) {
 		sf::Event event;
@@ -42,6 +43,7 @@ void App::run() {
 			}
 		}
 		if (ship.checkIfCollidingWith(asteroid)) {
+			shipExplosions.emplace_back(ship.spawnExplosion());
 			ship.resetState();
 		}
 
@@ -50,12 +52,22 @@ void App::run() {
 		asteroid.update();
 		ship.updatePosition();
 
+		for (auto e_it = shipExplosions.begin(); e_it != shipExplosions.end(); ++e_it) {
+			if (!e_it->updateWithLifetime()) {
+				shipExplosions.erase(e_it);
+				break;
+			}
+		}
+
 		windowPtr->clear();
 		for (const auto& bullet : bullets) {
 			bullet.draw(*windowPtr);
 		}
 		asteroid.draw(*windowPtr);
 		ship.draw(*windowPtr);
+		for (const auto& shipExplosion : shipExplosions) {
+			shipExplosion.draw(*windowPtr);
+		}
 		windowPtr->display();
 	}
 }

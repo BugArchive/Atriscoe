@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <Windows.h>
 #include "Ship.h"
+#include "ShipExplosion.h"
 #include "Asteroid.h"
 
 class App {
