@@ -27,12 +27,25 @@ void App::run() {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) ship.turnLeft();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ship.turnRight();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) ship.accelerate();
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) bullets.emplace_back(ship.spawnBullet());
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+				if (bulletReloadTime == 0) {
+					bullets.emplace_back(ship.spawnBullet());
+					bulletReloadTime = bulletReloadPeriod;
+				}
+			};
+		}
+		for (auto b_it = bullets.begin(); b_it != bullets.end(); ++b_it) {
+			if (b_it->checkIfCollidingWith(asteroid)) {
+				bullets.erase(b_it);
+				asteroid = Asteroid();
+				break;
+			}
 		}
 		if (ship.checkIfCollidingWith(asteroid)) {
 			asteroid = Asteroid();
 		}
 
+		if (bulletReloadTime > 0) bulletReloadTime--;
 		bullets.erase(std::remove_if(bullets.begin(), bullets.end(), [](Bullet& bullet) { return !bullet.updateWithLifetime(); }), bullets.end());
 		asteroid.update();
 		ship.updatePosition();
