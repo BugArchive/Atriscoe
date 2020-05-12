@@ -31,3 +31,11 @@ void Ship::turnRight() {
 Bullet Ship::spawnBullet() {
 	return Bullet{ position, rotation };
 }
+
+void Ship::resetState() {
+	position = { windowRightBorder / 2.0f, windowBottomBorder / 2.0f };
+	velocity = { 0.0f, 0.0f };
+	rotation = 0.0f;
+	sprite.setPosition(position);
+	sprite.setRotation(rotation);
+}

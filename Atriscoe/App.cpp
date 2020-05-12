@@ -42,7 +42,7 @@ void App::run() {
 			}
 		}
 		if (ship.checkIfCollidingWith(asteroid)) {
-			asteroid = Asteroid();
+			ship.resetState();
 		}
 
 		if (bulletReloadTime > 0) bulletReloadTime--;
