@@ -18,5 +18,5 @@ Bullet::Bullet(const sf::Vector2f & position, float rotation) {
 
 int Bullet::updateWithLifetime() {
 	updatePosition();
-	return --lifeTime;
+	return --lifeTimeLeft;
 }

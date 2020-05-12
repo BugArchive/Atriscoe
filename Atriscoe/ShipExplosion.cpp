@@ -6,16 +6,16 @@ ShipExplosion::ShipExplosion(const sf::Vector2f & position) {
 	sprite.setPosition(position);
 }
 
-bool ShipExplosion::updateWithLifetime() {
-	if (lifeTime > lifePeriod / 2) {
-		sprite.setRadius(lifePeriod - lifeTime);
-		sprite.setOrigin(lifePeriod - lifeTime, lifePeriod - lifeTime);
+int ShipExplosion::updateWithLifetime() {
+	if (lifeTimeLeft > lifePeriod / 2) {
+		sprite.setRadius(static_cast<float>(lifePeriod - lifeTimeLeft));
+		sprite.setOrigin(static_cast<float>(lifePeriod - lifeTimeLeft), static_cast<float>(lifePeriod - lifeTimeLeft));
 	}
 	else {
-		sprite.setRadius(lifeTime);
-		sprite.setOrigin(lifeTime, lifeTime);
+		sprite.setRadius(static_cast<float>(lifeTimeLeft));
+		sprite.setOrigin(static_cast<float>(lifeTimeLeft), static_cast<float>(lifeTimeLeft));
 	}
-	return --lifeTime;
+	return --lifeTimeLeft;
 }
 
 void ShipExplosion::draw(sf::RenderWindow & window) const {

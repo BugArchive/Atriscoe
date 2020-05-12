@@ -6,6 +6,6 @@ public:
 	int updateWithLifetime();
 private:
 	static const float speed;
-	int lifeTime{ 120 };
+	int lifeTimeLeft{ 120 };
 };
 

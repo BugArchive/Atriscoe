@@ -16,5 +16,5 @@ private:
 	bool checkIfWindowInFocus() const;
 	std::unique_ptr<sf::RenderWindow> windowPtr;
 	const int bulletReloadPeriod{ 60 };
-	int bulletReloadTime{ 30 };
+	int bulletReloadTimeLeft{ 30 };
 };

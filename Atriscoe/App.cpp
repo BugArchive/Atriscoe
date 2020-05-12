@@ -29,9 +29,9 @@ void App::run() {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ship.turnRight();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) ship.accelerate();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-				if (bulletReloadTime == 0) {
+				if (bulletReloadTimeLeft == 0) {
 					bullets.emplace_back(ship.spawnBullet());
-					bulletReloadTime = bulletReloadPeriod;
+					bulletReloadTimeLeft = bulletReloadPeriod;
 				}
 			};
 		}
@@ -47,7 +47,7 @@ void App::run() {
 			ship.resetState();
 		}
 
-		if (bulletReloadTime > 0) bulletReloadTime--;
+		if (bulletReloadTimeLeft > 0) bulletReloadTimeLeft--;
 		bullets.erase(std::remove_if(bullets.begin(), bullets.end(), [](Bullet& bullet) { return !bullet.updateWithLifetime(); }), bullets.end());
 		asteroid.update();
 		ship.updatePosition();
