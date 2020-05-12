@@ -14,6 +14,7 @@ void App::run() {
 	Ship ship;
 	Asteroid asteroid;
 	std::vector<Bullet> bullets;
+	std::vector<ShipExhaust> shipExhausts;
 	std::vector<ShipExplosion> shipExplosions;
 
 	while (windowPtr->isOpen()) {
@@ -27,7 +28,10 @@ void App::run() {
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) ship.turnLeft();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ship.turnRight();
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) ship.accelerate();
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+				ship.accelerate();
+				shipExhausts.emplace_back(ship.spawnExhaust());
+			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 				if (bulletReloadTimeLeft == 0) {
 					bullets.emplace_back(ship.spawnBullet());
@@ -52,6 +56,10 @@ void App::run() {
 		asteroid.update();
 		ship.updatePosition();
 
+		shipExhausts.erase(std::remove_if(shipExhausts.begin(),
+										  shipExhausts.end(),
+										  [](ShipExhaust& shipExhaust) { return !shipExhaust.updateWithLifetime(); }), shipExhausts.end());
+
 		for (auto e_it = shipExplosions.begin(); e_it != shipExplosions.end(); ++e_it) {
 			if (!e_it->updateWithLifetime()) {
 				shipExplosions.erase(e_it);
@@ -64,6 +72,9 @@ void App::run() {
 			bullet.draw(*windowPtr);
 		}
 		asteroid.draw(*windowPtr);
+		for (const auto& shipExhaust : shipExhausts) {
+			shipExhaust.draw(*windowPtr);
+		}
 		ship.draw(*windowPtr);
 		for (const auto& shipExplosion : shipExplosions) {
 			shipExplosion.draw(*windowPtr);

@@ -32,6 +32,11 @@ Bullet Ship::spawnBullet() {
 	return Bullet{ position, rotation };
 }
 
+ShipExhaust Ship::spawnExhaust() {
+	sf::Vector2f offsetFromShip{ -22.0f*cos(rotation*M_PI / 180), -22.0f*sin(rotation*M_PI / 180) };
+	return ShipExhaust(position + offsetFromShip, rotation);
+}
+
 ShipExplosion Ship::spawnExplosion() {
 	return ShipExplosion(position);
 }

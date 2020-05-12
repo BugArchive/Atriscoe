@@ -1,6 +1,7 @@
 #pragma once
 #include "GameElement.h"
 #include "Bullet.h"
+#include "ShipExhaust.h"
 #include "ShipExplosion.h"
 
 class Ship : public GameElement {
@@ -10,6 +11,7 @@ public:
 	void turnLeft();
 	void turnRight();
 	Bullet spawnBullet();
+	ShipExhaust spawnExhaust();
 	ShipExplosion spawnExplosion();
 	void resetState();
 private:
