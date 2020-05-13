@@ -13,60 +13,72 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\GameElements">
+      <UniqueIdentifier>{5bf293bd-06f3-40d6-a75d-c498ee09590e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameElements">
+      <UniqueIdentifier>{87f104fb-0da3-4555-ac68-e64cd3bbce61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Animations">
+      <UniqueIdentifier>{8edcbb39-0776-4fd8-bba1-fc588ac46b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Animations">
+      <UniqueIdentifier>{4ec82a15-2310-48a0-9741-b6605f0596cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ship.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameElement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="App.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Asteroid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RandomFloatGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GameElement.cpp">
+      <Filter>Source Files\GameElements</Filter>
     </ClCompile>
-    <ClCompile Include="ShipExplosion.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Ship.cpp">
+      <Filter>Source Files\GameElements</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroid.cpp">
+      <Filter>Source Files\GameElements</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\GameElements</Filter>
     </ClCompile>
     <ClCompile Include="ShipExhaust.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="ShipExplosion.cpp">
+      <Filter>Source Files\Animations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ship.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameElement.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="App.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Asteroid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RandomFloatGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GameElement.h">
+      <Filter>Header Files\GameElements</Filter>
     </ClInclude>
-    <ClInclude Include="ShipExplosion.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Asteroid.h">
+      <Filter>Header Files\GameElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\GameElements</Filter>
+    </ClInclude>
+    <ClInclude Include="Ship.h">
+      <Filter>Header Files\GameElements</Filter>
     </ClInclude>
     <ClInclude Include="ShipExhaust.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="ShipExplosion.h">
+      <Filter>Header Files\Animations</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
