@@ -1,10 +1,10 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-class ShipExhaust {
+#include "Animation.h"
+class ShipExhaust : public Animation {
 public:
 	ShipExhaust(const sf::Vector2f& position, float rotation);
-	int updateWithLifetime();
-	void draw(sf::RenderWindow& window) const;
+	int updateWithLifetime() override;
+	void draw(sf::RenderWindow& window) const override;
 private:
 	sf::ConvexShape sprite;
 	int lifeTimeLeft{ 10 };

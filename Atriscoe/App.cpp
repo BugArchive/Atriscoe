@@ -14,8 +14,7 @@ void App::run() {
 	Ship ship;
 	Asteroid asteroid;
 	std::vector<Bullet> bullets;
-	std::vector<ShipExhaust> shipExhausts;
-	std::vector<ShipExplosion> shipExplosions;
+	std::vector<std::unique_ptr<Animation>> animationsPtrs;
 
 	while (windowPtr->isOpen()) {
 		sf::Event event;
@@ -30,7 +29,7 @@ void App::run() {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ship.turnRight();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 				ship.accelerate();
-				shipExhausts.emplace_back(ship.spawnExhaust());
+				animationsPtrs.emplace_back(std::make_unique<ShipExhaust>(ship.spawnExhaust()));
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 				if (bulletReloadTimeLeft == 0) {
@@ -47,7 +46,7 @@ void App::run() {
 			}
 		}
 		if (ship.checkIfCollidingWith(asteroid)) {
-			shipExplosions.emplace_back(ship.spawnExplosion());
+			animationsPtrs.emplace_back(std::make_unique<ShipExplosion>(ship.spawnExplosion()));
 			ship.resetState();
 		}
 
@@ -56,29 +55,23 @@ void App::run() {
 		asteroid.update();
 		ship.updatePosition();
 
-		shipExhausts.erase(std::remove_if(shipExhausts.begin(),
-										  shipExhausts.end(),
-										  [](ShipExhaust& shipExhaust) { return !shipExhaust.updateWithLifetime(); }), shipExhausts.end());
-
-		for (auto e_it = shipExplosions.begin(); e_it != shipExplosions.end(); ++e_it) {
-			if (!e_it->updateWithLifetime()) {
-				shipExplosions.erase(e_it);
-				break;
-			}
-		}
+		animationsPtrs.erase(std::remove_if(animationsPtrs.begin(),
+											animationsPtrs.end(),
+											[](const std::unique_ptr<Animation>& animationPtr)
+												{ return !animationPtr->updateWithLifetime(); }),
+							 animationsPtrs.end());
 
 		windowPtr->clear();
 		for (const auto& bullet : bullets) {
 			bullet.draw(*windowPtr);
 		}
 		asteroid.draw(*windowPtr);
-		for (const auto& shipExhaust : shipExhausts) {
-			shipExhaust.draw(*windowPtr);
+
+		for (const auto& animation : animationsPtrs) {
+			animation->draw(*windowPtr);
 		}
+
 		ship.draw(*windowPtr);
-		for (const auto& shipExplosion : shipExplosions) {
-			shipExplosion.draw(*windowPtr);
-		}
 		windowPtr->display();
 	}
 }

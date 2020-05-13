@@ -80,5 +80,8 @@
     <ClInclude Include="ShipExplosion.h">
       <Filter>Header Files\Animations</Filter>
     </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files\Animations</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
