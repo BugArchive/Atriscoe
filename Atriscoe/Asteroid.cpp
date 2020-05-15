@@ -19,3 +19,7 @@ void Asteroid::update() {
 	rotateByAngle(rotationSpeed);
 	updatePosition();
 }
+
+AsteroidExplosion Asteroid::spawnExplosion() const {
+	return AsteroidExplosion(sprite);
+}

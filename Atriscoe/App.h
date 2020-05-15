@@ -9,6 +9,7 @@
 #include "ShipExhaust.h"
 #include "ShipExplosion.h"
 #include "Asteroid.h"
+#include "AsteroidExplosion.h"
 
 class App {
 public:

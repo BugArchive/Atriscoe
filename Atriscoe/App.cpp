@@ -41,6 +41,7 @@ void App::run() {
 		for (auto b_it = bullets.begin(); b_it != bullets.end(); ++b_it) {
 			if (b_it->checkIfCollidingWith(asteroid)) {
 				bullets.erase(b_it);
+				animationsPtrs.emplace_back(std::make_unique<AsteroidExplosion>(asteroid.spawnExplosion()));
 				asteroid = Asteroid();
 				break;
 			}
