@@ -135,6 +135,7 @@
     <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="AsteroidExplosion.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="ShipExhaust.cpp" />
     <ClCompile Include="ShipExplosion.cpp" />
     <ClCompile Include="GameElement.cpp" />
@@ -145,9 +146,11 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="App.h" />
+    <ClInclude Include="AppScreen.h" />
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="AsteroidExplosion.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="ShipExhaust.h" />
     <ClInclude Include="ShipExplosion.h" />
     <ClInclude Include="GameElement.h" />

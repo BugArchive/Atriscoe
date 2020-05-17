@@ -25,6 +25,12 @@
     <Filter Include="Header Files\Animations">
       <UniqueIdentifier>{4ec82a15-2310-48a0-9741-b6605f0596cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AppScreens">
+      <UniqueIdentifier>{19900ac8-6bd0-4631-a6f6-86d255e9f3a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AppScreens">
+      <UniqueIdentifier>{f4faf6e0-6862-4511-a58f-ac370ad94d07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,6 +63,9 @@
     <ClCompile Include="AsteroidExplosion.cpp">
       <Filter>Source Files\Animations</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\AppScreens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -88,6 +97,12 @@
     </ClInclude>
     <ClInclude Include="AsteroidExplosion.h">
       <Filter>Header Files\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="AppScreen.h">
+      <Filter>Header Files\AppScreens</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files\AppScreens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
